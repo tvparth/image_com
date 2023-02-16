@@ -1,0 +1,84 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Vendor CSS Files -->
+    <link rel="stylesheet" href="{% static 'accounts/vendor/bootstrap/css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'accounts/vendor/bootstrap-icons/bootstrap-icons.css'%}">
+    <link rel="stylesheet" href="{% static 'accounts/vendor/aos/aos.css'%}">
+    <link rel="stylesheet" href="{% static 'accounts/vendor/glightbox/css/glightbox.min.css'%}">
+    <link rel="stylesheet" href="{% static 'accounts/vendor/swiper/swiper-bundle.min.css'%}">
+
+     <!-- Variables CSS Files. Uncomment your preferred color scheme -->
+    <link rel="stylesheet" href="{% static 'accounts/css/variables.css'%}">
+
+    <!-- Template Main CSS File -->
+    <link rel="stylesheet" href="{% static 'accounts/css/main.css'%}"
+
+
+    <title>  {% block title %} {% endblock title %} </title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+     <div class="container">
+       <a class="navbar-brand"><h1>Image</h1></a>
+       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+       </button>
+       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+           <li class="nav-item">
+             <a class="nav-link active" aria-current="page" href="/">Home</a>
+           </li>
+           <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="">Upload Pic</a>
+          </li>
+           
+
+         
+         </ul>
+         <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          </form>
+         
+         <div>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            {% if request.user.is_authenticated %}
+            <li class="nav-item mx-2">
+              <a href="{% url 'logout' %}" class="nav-link text-white">Logout</a>
+             </li>
+             {% else %}
+             <li class="nav-item mx-2">
+              <a href="{% url 'login' %}" class="nav-link text-white">Login</a>
+             </li>
+             {% endif %}
+            
+           
+          </ul>
+         </div>
+       </div>
+     </div>
+    </nav>
+    {% block content %}{% endblock content %}
+ 
+    <!-- Vendor JS Files -->
+    <script src="{% static 'accounts/vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+    <script src="{% static 'accounts/vendor/aos/aos.js'%}"></script>
+    <script src="{% static 'accounts/vendor/glightbox/js/glightbox.min.js'%}"></script>
+    <script src="{% static 'accounts/vendor/isotope-layout/isotope.pkgd.min.js'%}"></script>
+    <script src="{% static 'accounts/vendor/swiper/swiper-bundle.min.js'%}"></script>
+    <script src="{% static 'accounts/vendor/php-email-form/validate.js'%}"></script>
+
+    <!-- Template Main JS File -->
+    <script src="{% static 'accounts/js/main.js'%}"></script>
+    
+    
+
+    
+    
+  </body>
+</html>
